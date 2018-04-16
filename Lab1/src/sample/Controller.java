@@ -1,21 +1,90 @@
 package sample;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
-public class Controller {
+
+public class Controller{
 
     @FXML
-    private TextArea textArea1,textArea2;
+    private TextArea myTextArea1,myTextArea2;
 
     @FXML
-    private Button code,uncode;
+    public void encrypt(){
+        String message = myTextArea1.getText();
+        String cipherText = "";
+        int lenght = message.length();
+        int shift = 10;
+        if (shift > 33){
+            shift = shift % 33;
+        }else if (shift < 0){
+            shift = (shift % 33 ) + 33;
+        }
+        for (int i = 0; i < lenght; i++) {
+            char ch = message.charAt(i);
+            if (Character.isLetter(ch)){
+                if (Character.isLowerCase(ch)){
+                    char c = (char)(ch + shift);
+                    if (c > 'я'){
+                        cipherText += (char)(ch - (26 - shift));
+                    }
+                    else {
+                        cipherText += c;
+                    }
+                }
+                else if (Character.isUpperCase(ch)){
+                    char c = (char)(ch + shift);
+                    if (c > 'Я'){
+                        cipherText += (char)(ch - (26 - shift));
+                    }
+                    else {
+                        cipherText += c;
+                    }
+                }
+            }
+            else {
+                cipherText += ch;
+            }
+        }
+        myTextArea2.setText(cipherText);
+    }
 
-    public void onClickMethodCode(ActionEvent actionEvent) {
-        String s = textArea1.getText();
-        textArea2.setText(s + " + key");
+    @FXML
+    public void decrypt(){
+        String message = myTextArea1.getText();
+        String cipherText = "";
+        int lenght = message.length();
+        int shift = 10;
+        if (shift > 33){
+            shift = shift % 33;
+        }else if (shift < 0){
+            shift = (shift % 33 ) + 33;
+        }
+        for (int i = 0; i < lenght; i++) {
+            char ch = message.charAt(i);
+            if (Character.isLetter(ch)){
+                if (Character.isLowerCase(ch)){
+                    char c = (char)(ch - shift);
+                    if (c < 'а'){
+                        cipherText += (char)(ch + (26 - shift));
+                    }
+                    else {
+                        cipherText += c;
+                    }
+                }
+                else if (Character.isUpperCase(ch)){
+                    char c = (char)(ch - shift);
+                    if (c < 'А'){
+                        cipherText += (char)(ch + (26 - shift));
+                    }
+                    else {
+                        cipherText += c;
+                    }
+                }
+            }
+            else {
+                cipherText += ch;
+            }
+        }
+        myTextArea2.setText(cipherText);
     }
 }
