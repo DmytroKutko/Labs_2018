@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<AnchorPane fx:id="controller"
+            maxHeight="-Infinity"
+            maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="400.0"
+            prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+   <children>
+      <TextArea layoutX="14.0" layoutY="112.0" prefHeight="200.0" prefWidth="200.0" fx:id="textArea1" />
+      <TextArea layoutX="386.0" layoutY="112.0" prefHeight="200.0" prefWidth="200.0" fx:id="textArea2" />
+      <Button layoutX="272.0" layoutY="165.0" mnemonicParsing="false" text="Code-&gt;" fx:id="code" onAction="#onClickMethodCode"/>
+      <Button layoutX="265.0" layoutY="212.0" mnemonicParsing="false" text="Uncode-&gt;" fx:id="uncode" />
+      <Label layoutX="72.0" layoutY="32.0" prefHeight="17.0" prefWidth="85.0" text="Kutko Dmytro" />
+      <Label layoutX="72.0" layoutY="60.0" prefHeight="17.0" prefWidth="94.0" text="Key = 10" />
+   </children>
+</AnchorPane>
